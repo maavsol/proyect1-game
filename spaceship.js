@@ -1,7 +1,4 @@
-console.log("Start the battle!");
-
-
-function Spaceship(name, PlaceSpaceShipYpx){
+function Spaceship(name){
   this.name = name;
   this.posLeft = 0;
   this.speed = 1;
@@ -12,19 +9,19 @@ function Spaceship(name, PlaceSpaceShipYpx){
   this.posTop = 0;
   this.pointAt = 0;
   this.turnSpeed = 10;
-  this.offX = 10;
-  this.offY = PlaceSpaceShipYpx;
-  this.placeInBoard();
+  // this.offX = 10;
+  // this.offY = 0;
   // this.strength = strength;
 }
 
 
 Spaceship.prototype.placeInBoard = function(offX, offY){
+  console.log(this);
   var element = $("<div>").attr("id", this.name).addClass("spaceship");
-  $("#board").append(element);
+  $(".wall").append(element);
   element.css({
-    top: this.posTop + this.offY,
-    left: this.posLeft + this.offX,
+    top: this.posTop + offX,
+    left: this.posLeft + offY,
   });
 };
 
@@ -51,8 +48,6 @@ Spaceship.prototype.move = function(direction){
     });
   }
 };
-
-Spaceship.prototype.shoot = function (){};
 // first attempt at main methods
 // }
 //
