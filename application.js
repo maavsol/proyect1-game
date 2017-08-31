@@ -3,20 +3,27 @@
 //-------------------------------------------------------------
 
 
-
+var controlship1 = true;
+var controlship2 = true;
 var spaceShip1;
 var spaceShip2;
 var bullet;
+var bullet1;
 var keys = {};
+var boardHeight = $(".wall").height();
+var navHeight = $("#ship2").height();
 
 $(document).ready(function() {
-  spaceShip1 = new Spaceship("ship1", 100);
-  spaceShip2 = new Spaceship("ship2", 100);
-  spaceShip1.placeInBoard(0, 250);
-  spaceShip2.placeInBoard(620,250);
+  spaceShip1 = new Spaceship("ship1", 90, 0, 90);
+  spaceShip2 = new Spaceship("ship2", 90, 620, 90);
+
 
   // bullet = new Shot (10,10,10);
-  setInterval(checkControls, 100);
+  setInterval(function (){
+    checkControls();
+    if(bullet)bullet.update();
+    if(bullet1)bullet1.update1();
+  } ,100);
 
 });
 
@@ -29,9 +36,7 @@ $(document).keydown(function(e) {
 
 function checkControls() {
   if (keys[37]) {
-    console.log("rota");
     spaceShip1.rotate("right");
-    console.log("rota");
   } else if (keys[39]) {
     spaceShip1.rotate("left");
   } else if (keys[190]) {
@@ -47,8 +52,15 @@ function checkControls() {
   } else if (keys[65]) {
     spaceShip2.move("left");
   }
-  // else if (keys[76]){
-  //   console.log("dsipara");
-  //   bullet.renderBullet();
-  // }
+
+  if (keys[77]){
+  if(controlship1 == true){
+    bullet = new Shot(spaceShip1);
+    controlship1 = false;}
+    }
+  if (keys[86]){
+    if(controlship2 == true){
+    bullet1 = new Shot(spaceShip2);
+    controlship2 = false;}
+  }
 }

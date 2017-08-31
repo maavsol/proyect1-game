@@ -1,4 +1,4 @@
-#board {
+#background{
   background-image: url("https://media.giphy.com/media/11RhzdEiCh6Wek/giphy.gif");
   background-size: cover;
   width: 800px;
@@ -42,12 +42,16 @@
 }
 
 .bullet{
-  top: 50px;
-  left: 50px;
-  width: 300px;
-  height: 300px;
+  width: 20px;
+  height: 20px;
   position: absolute;
-  background-image: url("images/bullet.png");
-  background-size: cover;
-  transition: all 3s linear 0.1s;
+  background-color: red;
 }
+
+#bulletS1{
+  background-color: red;
+};
+
+#bulletS2{
+  background-color: teal;
+};
