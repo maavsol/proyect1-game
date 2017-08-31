@@ -17,6 +17,8 @@ $(document).ready(function() {
   spaceShip1 = new Spaceship("ship1", 90, 0, 90);
   spaceShip2 = new Spaceship("ship2", 90, 620, 90);
   life1 = new Board();
+  asteroid1 = new Asteroid(50, 400, 5);
+  asteroid2 = new Asteroid(100, 200, 30);
 
 
   // bullet = new Shot (10,10,10);
@@ -24,8 +26,12 @@ $(document).ready(function() {
     checkControls();
     if(bullet)bullet.update();
     if(bullet1)bullet1.update1();
+    if(asteroid1)asteroid1.updateAsteroid();
+    if(asteroid2)asteroid2.updateAsteroid();
+
     checkImpact();
     checkImpact2();
+    asteroidImpact();
   } ,100);
 
 
@@ -72,9 +78,9 @@ function checkControls() {
 function checkImpact(){
   var impactoenS2 = ($(".bulletS1").collision("#ship2"));
   if(impactoenS2[0]){
-    $(impactoenS2).css("background-image", "url('images/200.gif')");
+    $(impactoenS2).css("background-image", "url('../images/200.gif')");
     setTimeout(function(){
-    $(impactoenS2).css("background-image", "url('images/nave2.png')");
+    $(impactoenS2).css("background-image", "url('../images/nave2.png')");
   }, 800);
   }
 }
@@ -82,10 +88,18 @@ function checkImpact(){
 function checkImpact2(){
   var impactoenS1 = ($(".bulletS2").collision("#ship1"));
   if(impactoenS1[0]){
-    $(impactoenS1).css("background-image", "url('images/200.gif')");
+    $(impactoenS1).css("background-image", "url('../images/200.gif')");
     setTimeout(function(){
-    $(impactoenS1).css("background-image", "url('images/nave1.png')");
+    $(impactoenS1).css("background-image", "url('../images/nave1.png')");
   }, 800);
+  }
+}
+
+function asteroidImpact(){
+  var impactas1 = ($(".bulletS1").collision(".asteroid"));
+  if(impactas1[0]){
+    console.log("habemus impactum");
+    $(impactas1).css("background-image", "url('../images/astronaut.png')");
   }
 }
 
