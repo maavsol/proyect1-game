@@ -1,6 +1,3 @@
-/*@font-face {
-
-}*/
 
 #background {
   background-image: url("https://media.giphy.com/media/11RhzdEiCh6Wek/giphy.gif");
@@ -91,6 +88,13 @@
 }
 
 .bar {
+  background: #c54;
+  width: 100%;
+  height: 10px;
+  position: relative;
+}
+
+.bar1 {
   background: #c54;
   width: 100%;
   height: 10px;

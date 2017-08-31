@@ -9,7 +9,7 @@ function Board(){
   $("#background").append(this.element);
   this.element2 = $("<div>").addClass("lifenav2");
   $("#background").append(this.element2);
-  this.element3 = $("<div>").addClass("bar");
+  this.element3 = $("<div>").addClass("bar1");
   $(".lifenav1").append(this.element3);
   this.element4 = $("<div>").addClass("bar");
   $(".lifenav2").append(this.element4);

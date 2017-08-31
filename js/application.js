@@ -32,6 +32,7 @@ $(document).ready(function() {
     checkImpact();
     checkImpact2();
     asteroidImpact();
+    asteroidImpact2();
   } ,100);
 
 
@@ -79,6 +80,7 @@ function checkImpact(){
   var impactoenS2 = ($(".bulletS1").collision("#ship2"));
   if(impactoenS2[0]){
     $(impactoenS2).css("background-image", "url('../images/200.gif')");
+    $(".bar").css("width", "0");
     setTimeout(function(){
     $(impactoenS2).css("background-image", "url('../images/nave2.png')");
   }, 800);
@@ -89,6 +91,7 @@ function checkImpact2(){
   var impactoenS1 = ($(".bulletS2").collision("#ship1"));
   if(impactoenS1[0]){
     $(impactoenS1).css("background-image", "url('../images/200.gif')");
+    $(".bar1").css("width", "0");
     setTimeout(function(){
     $(impactoenS1).css("background-image", "url('../images/nave1.png')");
   }, 800);
@@ -100,6 +103,14 @@ function asteroidImpact(){
   if(impactas1[0]){
     console.log("habemus impactum");
     $(impactas1).css("background-image", "url('../images/astronaut.png')");
+  }
+}
+
+function asteroidImpact2(){
+  var impactas2 = ($(".bulletS2").collision(".asteroid"));
+  if(impactas2[0]){
+    console.log("habemus impactum");
+    $(impactas2).css("background-image", "url('../images/astronaut.png')");
   }
 }
 
