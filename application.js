@@ -16,6 +16,7 @@ var navHeight = $("#ship2").height();
 $(document).ready(function() {
   spaceShip1 = new Spaceship("ship1", 90, 0, 90);
   spaceShip2 = new Spaceship("ship2", 90, 620, 90);
+  life1 = new Board();
 
 
   // bullet = new Shot (10,10,10);
@@ -23,9 +24,11 @@ $(document).ready(function() {
     checkControls();
     if(bullet)bullet.update();
     if(bullet1)bullet1.update1();
+    checkImpact();
+    checkImpact2();
   } ,100);
 
-});
+
 
 $(document).keydown(function(e) {
   keys[e.keyCode] = true;
@@ -55,12 +58,35 @@ function checkControls() {
 
   if (keys[77]){
   if(controlship1 == true){
-    bullet = new Shot(spaceShip1);
+    bullet = new Shot(spaceShip1, "bulletS1");
     controlship1 = false;}
     }
   if (keys[86]){
     if(controlship2 == true){
-    bullet1 = new Shot(spaceShip2);
+    bullet1 = new Shot(spaceShip2, "bulletS2");
     controlship2 = false;}
   }
 }
+
+
+function checkImpact(){
+  var impactoenS2 = ($(".bulletS1").collision("#ship2"));
+  if(impactoenS2[0]){
+    $(impactoenS2).css("background-image", "url('images/200.gif')");
+    setTimeout(function(){
+    $(impactoenS2).css("background-image", "url('images/nave2.png')");
+  }, 800);
+  }
+}
+
+function checkImpact2(){
+  var impactoenS1 = ($(".bulletS2").collision("#ship1"));
+  if(impactoenS1[0]){
+    $(impactoenS1).css("background-image", "url('images/200.gif')");
+    setTimeout(function(){
+    $(impactoenS1).css("background-image", "url('images/nave1.png')");
+  }, 800);
+  }
+}
+
+});

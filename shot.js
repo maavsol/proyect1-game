@@ -1,12 +1,13 @@
 //
-function Shot(ship) {
+function Shot(ship, shotclass) {
   this.x = ship.x;
   this.y = ship.y;
   this.angle = ship.angle;
   this.speedX = 50;
   this.speedY = 50;
   this.control = true;
-  this.element = $("<div>").addClass("bullet").css({
+  this.class= shotclass;
+  this.element = $("<div>").addClass(shotclass).css({
     top: ship.y,
     left: ship.x,
   });
@@ -18,7 +19,7 @@ Shot.prototype.update = function() {
     this.speedX *= -1;
   }
   if (this.y >= $(".wall").height()) {
-    $("#bulletS1").remove();
+    $(".bulletS1").remove();
     controlship1 = true;
     console.log(this.control);
   }
@@ -54,7 +55,7 @@ Shot.prototype.update1 = function() {
     this.speedX *= -1;
   }
   if (this.y <= 0) {
-    $("#bulletS2").remove();
+    $("bullet.S2").remove();
     controlship2 = true;
   }
   if (180 > this.angle && this.angle > 90) {

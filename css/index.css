@@ -1,0 +1,94 @@
+#background {
+  background-image: url("https://media.giphy.com/media/11RhzdEiCh6Wek/giphy.gif");
+  background-size: cover;
+  width: 1000px;
+  height: 800px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.wall {
+  height: 800px;
+  width: 600px;
+  background-color: white;
+  ;
+  position: relative;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  opacity: 0.4;
+  margin: 0 auto;
+}
+
+.spaceship {
+  height: 90px;
+  width: 90px;
+  position: relative;
+}
+
+#ship1 {
+  background-image: url("images/nave1.png");
+  background-size: cover;
+}
+
+#ship2 {
+  top: 620px;
+  background-image: url("images/nave2.png");
+  background-size: cover;
+}
+
+.bulletS1 {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  background-image: url("images/bulletelectric.gif");
+  background-size: cover;
+  border: none;
+}
+
+.bulletS2 {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  background-image: url("images/bulletfire.gif");
+  background-size: cover;
+  border: none;
+}
+
+.lifenav1 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 160px;
+  height: 20px;
+  padding: 5px;
+  background: #ddd;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  top: 10px;
+  left: 10px;
+  position: absolute;
+}
+
+.lifenav2 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 160px;
+  height: 20px;
+  padding: 5px;
+  background: #ddd;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  top: 10px;
+  right: 10px;
+  position:absolute;
+}
+
+.bar {
+  background: #c54;
+  width: 100%;
+  height: 10px;
+  position: relative;
+}
