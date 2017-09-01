@@ -3,6 +3,8 @@ function Shot(ship, shotclass) {
   this.x = ship.x;
   this.y = ship.y;
   this.angle = ship.angle;
+  this.soundshot = new Audio("../music/shoot.wav");
+  this.explosion = new Audio("../music/explosion.wav");
   this.speedX = 50;
   this.speedY = 50;
   this.control = true;
@@ -23,6 +25,7 @@ Shot.prototype.update = function() {
     controlship1 = true;
     console.log(this.control);
   }
+
   if (180 > this.angle && this.angle > 90) {
     this.x -= 1 * this.speedX;
     this.y += 1 * this.speedY;
@@ -33,10 +36,7 @@ Shot.prototype.update = function() {
   }
   if (this.angle === 90) {
     this.y += 1 * this.speedY;
-    this.element.css({
-      top: this.y,
-      left: this.x
-    });
+    $(".bulletS2").remove();
   }
   if (90 > this.angle > 0) {
     this.x += 1 * this.speedX;
@@ -55,7 +55,7 @@ Shot.prototype.update1 = function() {
     this.speedX *= -1;
   }
   if (this.y <= 0) {
-    $("bullet.S2").remove();
+    $(".bulletS2").remove();
     controlship2 = true;
   }
   if (180 > this.angle && this.angle > 90) {
@@ -68,10 +68,7 @@ Shot.prototype.update1 = function() {
   }
   if (this.angle === 90) {
     this.y -= 1 * this.speedY;
-    this.element.css({
-      top: this.y,
-      left: this.x
-    });
+    $(".bulletS2").remove();
   }
   if (90 > this.angle > 0) {
     this.x -= 1 * this.speedX;

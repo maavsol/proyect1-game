@@ -2,6 +2,8 @@ function Spaceship(name, x, y, angle){
   this.name = name;
   this.angle = angle;
   this.control = false;
+  this.lifeX = 2;
+  this.lifeY = 2;
   this.x = x;
   this.y = y;
   this.speed = 20;
@@ -28,10 +30,6 @@ Spaceship.prototype.rotate = function(direction){
 };
 
 Spaceship.prototype.move = function(direction){
-    // if(this.x >= $(".wall").width() || this.x <= 0){
-    //   direction *= -1;
-    // }
-
     if (direction == "right") direction = 1;
     if (direction == "left") direction = -1;
     this.x += direction * this.speed;

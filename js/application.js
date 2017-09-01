@@ -13,6 +13,7 @@ var keys = {};
 var boardHeight = $(".wall").height();
 var navHeight = $("#ship2").height();
 
+
 $(document).ready(function() {
   spaceShip1 = new Spaceship("ship1", 90, 0, 90);
   spaceShip2 = new Spaceship("ship2", 90, 620, 90);
@@ -63,14 +64,16 @@ function checkControls() {
     spaceShip2.move("left");
   }
 
-  if (keys[77]){
+  if (keys[38]){
   if(controlship1 == true){
     bullet = new Shot(spaceShip1, "bulletS1");
+    bullet.soundshot.play();
     controlship1 = false;}
     }
-  if (keys[86]){
+  if (keys[87]){
     if(controlship2 == true){
     bullet1 = new Shot(spaceShip2, "bulletS2");
+    bullet.soundshot.play();
     controlship2 = false;}
   }
 }
@@ -81,8 +84,9 @@ function checkImpact(){
   if(impactoenS2[0]){
     $(impactoenS2).css("background-image", "url('../images/200.gif')");
     $(".bar").css("width", "0");
+    bullet.explosion.play();
     setTimeout(function(){
-    $(impactoenS2).css("background-image", "url('../images/nave2.png')");
+    $(impactoenS2).css("visibility", "hidden");
   }, 800);
   }
 }
@@ -92,8 +96,9 @@ function checkImpact2(){
   if(impactoenS1[0]){
     $(impactoenS1).css("background-image", "url('../images/200.gif')");
     $(".bar1").css("width", "0");
+    bullet.explosion.play();
     setTimeout(function(){
-    $(impactoenS1).css("background-image", "url('../images/nave1.png')");
+    $(impactoenS1).css("visibility", "hidden");
   }, 800);
   }
 }
@@ -103,6 +108,7 @@ function asteroidImpact(){
   if(impactas1[0]){
     console.log("habemus impactum");
     $(impactas1).css("background-image", "url('../images/astronaut.png')");
+    $(".bulletS1").remove();
   }
 }
 
@@ -111,6 +117,7 @@ function asteroidImpact2(){
   if(impactas2[0]){
     console.log("habemus impactum");
     $(impactas2).css("background-image", "url('../images/astronaut.png')");
+    $(".bulletS2").remove();
   }
 }
 

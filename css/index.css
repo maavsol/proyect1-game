@@ -1,6 +1,9 @@
 
+
+
+
 #background {
-  background-image: url("https://media.giphy.com/media/11RhzdEiCh6Wek/giphy.gif");
+  background-image: url("../images/giphy.gif");
   background-size: cover;
   width: 1000px;
   height: 800px;
@@ -12,7 +15,6 @@
   height: 800px;
   width: 600px;
   background-color: white;
-  ;
   position: relative;
   border-left: 2px solid white;
   border-right: 2px solid white;
@@ -110,6 +112,7 @@
   position: absolute;
   top: 0;
   color: white;
+  font-family: "Press Start 2P";
 }
 
 .name1{
@@ -122,6 +125,7 @@
   top: 0;
   color: white;
   right: 0;
+  font-family: "Press Start 2P";
 }
 
 .asteroid{
