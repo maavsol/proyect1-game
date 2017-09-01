@@ -14,17 +14,17 @@
 .wall {
   height: 800px;
   width: 600px;
-  background-color: white;
+  background-color: transparent;
   position: relative;
   border-left: 2px solid white;
   border-right: 2px solid white;
-  opacity: 0.4;
   margin: 0 auto;
 }
 
 .spaceship {
   height: 90px;
   width: 90px;
+  opacity: 1;
   position: relative;
 }
 
@@ -132,5 +132,6 @@
   width: 100px;
   height: 100px;
   background-image: url("../images/asteroid-icon.png");
+  opacity: 1;
   background-size: cover;
 }

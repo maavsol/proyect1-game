@@ -12,6 +12,8 @@ var bullet1;
 var keys = {};
 var boardHeight = $(".wall").height();
 var navHeight = $("#ship2").height();
+var asteroidWidth = $(".asteroid").width();
+var boardWidth = $(".wall").width();
 
 
 $(document).ready(function() {
@@ -107,6 +109,7 @@ function asteroidImpact(){
   var impactas1 = ($(".bulletS1").collision(".asteroid"));
   if(impactas1[0]){
     console.log("habemus impactum");
+    asteroid1.scream.play();
     $(impactas1).css("background-image", "url('../images/astronaut.png')");
     $(".bulletS1").remove();
   }
